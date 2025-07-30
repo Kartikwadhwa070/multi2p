@@ -1,16 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;                      // For Button
+using Unity.Netcode;                      // For NetworkManager
 
 public class ConnectUIscript : MonoBehaviour
 {
+    [SerializeField] private Button hostButton;
+    [SerializeField] private Button clientButton;
+
     void Start()
     {
         hostButton.onClick.AddListener(HostButtonOnClick);
         clientButton.onClick.AddListener(ClientButtonOnClick);
-    }
-
-    void Update()
-    {
-        
     }
 
     private void HostButtonOnClick()
@@ -20,7 +20,6 @@ public class ConnectUIscript : MonoBehaviour
 
     private void ClientButtonOnClick()
     {
-        NetowrkManager.Singleton.StartClient(); 
+        NetworkManager.Singleton.StartClient(); // Typo fixed from "NetowrkManager"
     }
-
 }
